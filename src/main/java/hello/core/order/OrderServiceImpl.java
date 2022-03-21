@@ -11,9 +11,13 @@ public class OrderServiceImpl implements OrderService{
 
     // 추상체와 구현체 둘 다 의존하고 있기 때문에 DIP를 위반함
     // 항상 추상화에만 의존해야 한다
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-//    private final DiscountPolisy discountPolisy = new FixDiscountPolisy();
-    private final DiscountPolisy discountPolisy = new RateDiscountPolisy();
+    private final MemberRepository memberRepository;
+    private final DiscountPolisy discountPolisy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolisy discountPolisy) {
+        this.memberRepository = memberRepository;
+        this.discountPolisy = discountPolisy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
