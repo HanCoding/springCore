@@ -18,6 +18,8 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.22'
 	testCompileOnly 'org.projectlombok:lombok:1.18.22'
 
+	testImplementation 'javax.inject:javax.inject:1'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
